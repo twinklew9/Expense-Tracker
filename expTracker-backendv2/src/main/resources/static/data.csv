@@ -1,0 +1,7 @@
+amount,note,category,date,type
+500.00,Pizza,,2026-02-12,EXPENSE
+700.00,Top,,2026-02-10,EXPENSE
+800.00,Movie,,2025-01-12,INCOME
+apple,Groceries,,2026-03-01,EXPENSE
+200.00,Cab,,2026-07-01,EXPENSE
+150.00,Coffee,,2026-07-05,EXPENSE

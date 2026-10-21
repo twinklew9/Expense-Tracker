@@ -1,0 +1,72 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.sgt.expenseTracker'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+
+	maven {
+		url 'https://repo.spring.io/milestone'
+	}
+}
+
+ext {
+	set('springAiVersion', "1.1.0-M3")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+	}
+}
+
+dependencies {
+
+	// Spring Web / REST API
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Database
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Email
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	// AI category suggestion
+	implementation 'org.springframework.ai:spring-ai-starter-model-google-genai'
+
+	// PDF monthly reports
+	implementation 'org.apache.pdfbox:pdfbox:3.0.3'
+
+	// Existing project dependencies
+	implementation 'org.antlr:ST4:4.3.4'
+	implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+	implementation 'org.slf4j:slf4j-api'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

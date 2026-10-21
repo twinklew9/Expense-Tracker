@@ -1,0 +1,4 @@
+amount,note,category,date,type
+500.00,Pizza,Food,2026-02-12,abc
+700.00,Top,Fashion,2027-02-10,EXPENSE
+-800.00,Movie,Entertainment,2025-01-12,INCOME
